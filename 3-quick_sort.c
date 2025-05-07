@@ -8,12 +8,12 @@
  */
 void swap(int *a, int *b)
 {
-    if (a != b)
-    {
-        int temp = *a;
-        *a = *b;
-        *b = temp;
-    }
+	if (a != b)
+{
+		int temp = *a;
+		*a = *b;
+		*b = temp;
+}
 }
 
 /**
@@ -27,23 +27,23 @@ void swap(int *a, int *b)
  */
 int lomuto_partition(int *array, int low, int high, size_t size)
 {
-    int pivot = array[high];
-    int i = low - 1, j;
+	int pivot = array[high];
+	int i = low - 1, j;
 
-    for (j = low; j < high; j++)
-    {
-        if (array[j] < pivot)
-        {
-            i++;
-            swap(&array[i], &array[j]);
-            if (i != j)
-                print_array(array, size);
-        }
-    }
-    swap(&array[i + 1], &array[high]);
-    if ((i + 1) != high)
-        print_array(array, size);
-    return (i + 1);
+	for (j = low; j < high; j++)
+	{
+	if (array[j] < pivot)
+	{
+		i++;
+		swap(&array[i], &array[j]);
+	if (i != j)
+		print_array(array, size);
+	}
+}
+	swap(&array[i + 1], &array[high]);
+	if ((i + 1) != high)
+		print_array(array, size);
+		return (i + 1);
 }
 
 /**
@@ -55,12 +55,13 @@ int lomuto_partition(int *array, int low, int high, size_t size)
  */
 void quicksort_rec(int *array, int low, int high, size_t size)
 {
-    if (low < high)
-    {
-        int pi = lomuto_partition(array, low, high, size);
-        quicksort_rec(array, low, pi - 1, size);
-        quicksort_rec(array, pi + 1, high, size);
-    }
+	if (low < high)
+{
+		int pi = lomuto_partition(array, low, high, size);
+
+		quicksort_rec(array, low, pi - 1, size);
+		quicksort_rec(array, pi + 1, high, size);
+}
 }
 
 /**
@@ -71,9 +72,9 @@ void quicksort_rec(int *array, int low, int high, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
-    if (!array || size < 2)
-        return;
+	if (!array || size < 2)
+		return;
 
-    quicksort_rec(array, 0, size - 1, size);
+	quicksort_rec(array, 0, size - 1, size);
 }
 
